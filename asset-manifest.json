@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/earthco/static/css/main.78d248e9.css",
-    "main.js": "/earthco/static/js/main.57fad48a.js",
+    "main.js": "/earthco/static/js/main.1b419322.js",
     "static/js/787.c967cfc6.chunk.js": "/earthco/static/js/787.c967cfc6.chunk.js",
     "static/media/earthco_logo.png": "/earthco/static/media/earthco_logo.9c2914cd26271bfe62a4.png",
     "index.html": "/earthco/index.html",
     "main.78d248e9.css.map": "/earthco/static/css/main.78d248e9.css.map",
-    "main.57fad48a.js.map": "/earthco/static/js/main.57fad48a.js.map",
+    "main.1b419322.js.map": "/earthco/static/js/main.1b419322.js.map",
     "787.c967cfc6.chunk.js.map": "/earthco/static/js/787.c967cfc6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.78d248e9.css",
-    "static/js/main.57fad48a.js"
+    "static/js/main.1b419322.js"
   ]
 }
