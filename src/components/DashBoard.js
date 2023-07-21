@@ -37,31 +37,15 @@ const DashBoard = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-sm-6">
-                                <div class="card same-card">
-                                    <div class="card-body d-flex align-items-center  py-2">
-                                        <div id="AllProject"></div>
-                                        <ul class="project-list">
-                                            <li><h6>Service Requests</h6></li>
-                                            <li>
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect width="10" height="10" rx="3" fill="#3AC977" />
-                                                </svg>
-                                                <p style={{ display: 'inline', marginLeft: '5px' }}>New</p>
-                                            </li>
-                                            <li>
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect width="10" height="10" rx="3" fill="var(--primary)" />
-                                                </svg>
-                                                <p style={{ display: 'inline', marginLeft: '5px' }}>Open</p>
-                                            </li>
-                                            <li>
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect width="10" height="10" rx="3" fill="var(--secondary)" />
-                                                </svg>
-                                                <p style={{ display: 'inline', marginLeft: '5px' }}>Closed</p>
-                                            </li>
-                                        </ul>
+                            <div class="col-xl-3  col-lg-6 col-sm-6">
+                                <div class="widget-stat card">
+                                    <div class="card-body p-4">
+                                        <h6>Open Service Requests</h6>
+                                        <h3 style={{ fontWeight: '600' }}>776534</h3>
+                                        <div class="progress mb-2">
+                                            <div class="progress-bar progress-animated bg-warning" style={{ width: '50%' }}></div>
+                                        </div>
+                                        <small>50% Increase in 25 Days</small>
                                     </div>
                                 </div>
                             </div>
@@ -522,7 +506,7 @@ const DashBoard = () => {
                                                 <td>Batman</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Liam Risher</p>
                                                     </div>
                                                 </td>
@@ -536,9 +520,9 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -558,7 +542,7 @@ const DashBoard = () => {
                                                 <td>Mivy App</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Honey Risher</p>
                                                     </div>
                                                 </td>
@@ -572,9 +556,9 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -594,7 +578,7 @@ const DashBoard = () => {
                                                 <td>Crypto App</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Ankites Risher</p>
                                                     </div>
                                                 </td>
@@ -608,8 +592,8 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
 
                                                     </div>
                                                 </td>
@@ -630,7 +614,7 @@ const DashBoard = () => {
                                                 <td>Bender Project</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Oliver Noah</p>
                                                     </div>
                                                 </td>
@@ -644,9 +628,9 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -666,7 +650,7 @@ const DashBoard = () => {
                                                 <td>Canary</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic888.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic888.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Elijah James</p>
                                                     </div>
                                                 </td>
@@ -680,10 +664,10 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -703,7 +687,7 @@ const DashBoard = () => {
                                                 <td>Casanova</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">William Risher</p>
                                                     </div>
                                                 </td>
@@ -717,9 +701,9 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -739,7 +723,7 @@ const DashBoard = () => {
                                                 <td>Bender Project</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Oliver Noah</p>
                                                     </div>
                                                 </td>
@@ -753,9 +737,9 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -775,7 +759,7 @@ const DashBoard = () => {
                                                 <td>Canary</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic888.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic888.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Elijah James</p>
                                                     </div>
                                                 </td>
@@ -789,10 +773,10 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -812,7 +796,7 @@ const DashBoard = () => {
                                                 <td>Casanova</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">William Risher</p>
                                                     </div>
                                                 </td>
@@ -826,9 +810,9 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -848,7 +832,7 @@ const DashBoard = () => {
                                                 <td>Bigfish</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Donald Benjamin</p>
                                                     </div>
                                                 </td>
@@ -862,9 +846,9 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -884,7 +868,7 @@ const DashBoard = () => {
                                                 <td>Matadors</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic888.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic888.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Liam Risher</p>
                                                     </div>
                                                 </td>
@@ -898,9 +882,9 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -920,7 +904,7 @@ const DashBoard = () => {
                                                 <td>Mercury</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Oliver Noah</p>
                                                     </div>
                                                 </td>
@@ -934,9 +918,9 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -956,7 +940,7 @@ const DashBoard = () => {
                                                 <td>Whistler</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic999.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic999.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Elijah James</p>
                                                     </div>
                                                 </td>
@@ -970,10 +954,10 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -993,7 +977,7 @@ const DashBoard = () => {
                                                 <td>Time Projects</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">Lucas</p>
                                                     </div>
                                                 </td>
@@ -1007,9 +991,9 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic999.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic999.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">
@@ -1029,7 +1013,7 @@ const DashBoard = () => {
                                                 <td>Fast Ball</td>
                                                 <td>
                                                     <div className="d-flex align-items-center">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
                                                         <p className="mb-0 ms-2">William Risher</p>
                                                     </div>
                                                 </td>
@@ -1043,9 +1027,9 @@ const DashBoard = () => {
                                                 </td>
                                                 <td className="pe-0">
                                                     <div className="avatar-list avatar-list-stacked">
-                                                        <img src="/assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="/assets/images/contacts/pic999.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
+                                                        <img src="./assets/images/contacts/pic999.jpg" className="avatar rounded-circle" alt="" />
                                                     </div>
                                                 </td>
                                                 <td className="pe-0">

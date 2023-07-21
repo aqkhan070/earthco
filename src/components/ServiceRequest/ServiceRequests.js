@@ -100,16 +100,16 @@ const ServiceRequests = () => {
                                                     <label className="form-check-label" htmlFor="customCheckBox2"></label>
                                                 </div>
                                             </th>
-                                            <th>Type</th>
-                                            <th>Assign / Appointment</th>
-                                            <th>Customer</th>
-                                            <th>Assgined to</th>
+                                           
+                                            <th>Customer Name </th>
+                                            <th>Assigned to</th>
+                                            <th>Service Request Number</th>  
+                                           
                                             <th>Status</th>
-                                            <th>Created</th>
-                                            <th>Estimate Total</th>
-                                            <th>Description</th>
-                                            <th>Proposal Number</th>
                                             <th>Work Requested</th>
+                                            <th>Date Created</th>
+                                            <th>Type</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>

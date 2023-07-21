@@ -5,19 +5,19 @@ const AddSRform = () => {
 
         <div className="card-body">
             <div class="row">
-            <div className="col-lg-2 col-md-12 mb-2">
-                <select className="default-select  form-control wide"  >
-                    <option value='Draft'>Draft</option>
-                    <option value='Sent'>Sent</option>
-                    <option value='Approved'>Approved</option>
-                    <option value='Rejected'>Rejected</option>
-                </select>
-            </div>
-            <div className="col-lg-4 col-md-12">
-                <button type="button" className="col-lg-3 btn btn-sm btn-outline-primary">Email</button>
-                <button type="button" className="col-lg-3 btn btn-sm btn-outline-primary mx-2">Print</button>
-                <button type="button" className="col-lg-5 btn btn-sm btn-outline-primary">Download</button>
-            </div>
+                <div className="col-lg-2 col-md-12 mb-2">
+                    <select className="default-select  form-control wide"  >
+                        <option value='Draft'>Draft</option>
+                        <option value='Sent'>Sent</option>
+                        <option value='Approved'>Approved</option>
+                        <option value='Rejected'>Rejected</option>
+                    </select>
+                </div>
+                <div className="col-lg-4 col-md-12">
+                    <button type="button" className="col-lg-3 btn btn-sm btn-outline-primary">Email</button>
+                    <button type="button" className="col-lg-3 btn btn-sm btn-outline-primary mx-2">Print</button>
+                    <button type="button" className="col-lg-5 btn btn-sm btn-outline-primary">Download</button>
+                </div>
             </div>
             <div className="card">
                 <div className="card-body p-0">
@@ -26,33 +26,24 @@ const AddSRform = () => {
                     </div>
                     <div className="basic-form">
                         <form className='SRdetailsForm'>
-                            <div className="SRfields col-md-10">
-                                <label className="form-label">Type:</label>
-                                <div className="col-md-10">
-                                    <select className="default-select  form-control wide" >
-                                        <option>Monthly Maintainence Report</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                    </select>
+                            <div className="row" style={{ width: '80%' }}>
+                                <div className=" col-md-6">
+                                    <label className="form-label">Job Name:</label>
+                                    <div className="col-md-10">
+                                        <input type="text" className="form-control" placeholder="Job Name" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="SRfields col-md-10">
-                                <label className="form-label">Job Name:</label>
-                                <div className="col-md-10">
-                                    <input type="text" className="form-control" placeholder="Job Name" />
+                                <div className=" col-md-6">
+                                    <label className="form-label">Due Date:</label>
+                                    <div className="col-md-10">
+                                        <input type="text" className="form-control" placeholder="Due Date" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="SRfields col-md-10" style={{ alignItems: 'flex-start' }}>
-                                <label className="form-label">Notes:</label>
-                                <div className="col-md-10">
-                                    <textarea className="form-txtarea form-control" rows="4" id="comment"></textarea>
-                                </div>
-                            </div>
-                            <div className="SRfields col-md-10">
-                                <label className="form-label">Due Date:</label>
-                                <div className="col-md-10">
-                                    <input type="text" className="form-control" placeholder="Due Date" />
+                                <div className="col-md-11 mt-3" style={{ alignItems: 'flex-start' }}>
+                                    <label className="form-label">Notes:</label>
+                                    <div className="col-md-12">
+                                        <textarea className="form-txtarea form-control" rows="4" id="comment"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </form>

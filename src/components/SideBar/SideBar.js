@@ -1,17 +1,65 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 
 const SideBar = () => {
-    const goToRoute = (route) => {
-        window.location.href = route;
-    }
+    const location = useLocation();
+    useEffect(() => {
+        // Define an array of script file paths
+        const scriptFiles = [
+            './assets/vendor/global/global.min.js',
+            './assets/js/custom.js',
+            './assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
+            './assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
+            // './assets/vendor/bootstrap-datetimepicker/js/moment.js',
+            // './assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js',
+            // './assets/js/dashboard/dashboard-1.js',
+            // './assets/vendor/draggable/draggable.js',
+            // './assets/vendor/tagify/dist/tagify.js',
+            // './assets/vendor/bootstrap-datetimepicker/js/moment.js',
+            // './assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js',
+            // './assets/js/deznav-init.js',
+            // './assets/js/demo.js',
+            // './assets/js/styleSwitcher.js',
+            // './assets/vendor/moment/moment.min.js',
+            // './assets/vendor/bootstrap-daterangepicker/daterangepicker.js',
+            // './assets/vendor/peity/jquery.peity.min.js',
+            // './assets/js/plugins-init/piety-init.js',
+            // './assets/js/plugins-init/widgets-script-init.js',
+            // './assets/vendor/swiper/css/swiper-bundle.min.css',
+            // './assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
+            // './assets/ajax/libs/noUiSlider/14.6.4/nouislider.min.css',
+            // './assets/vendor/jvmap/jquery-jvectormap.css',
+            // './assets/vendor/tagify/dist/tagify.css',
+            // './assets/vendor/chart.js/Chart.bundle.min.js',
+            // './assets/vendor/apexchart/apexchart.js'
+        ];
+
+        // Load and execute each script file
+        scriptFiles.forEach((filePath) => {
+            const script = document.createElement('script');
+            script.src = filePath;
+            script.async = true;
+
+            document.body.appendChild(script);
+        });
+
+        // Clean up the scripts when the component unmounts
+        return () => {
+            scriptFiles.forEach((filePath) => {
+                const script = document.querySelector(`script[src="${filePath}"]`);
+                if (script) {
+                    document.body.removeChild(script);
+                }
+            });
+        };
+    }, []);
     return (
         <div className="deznav">
             <div className="deznav-scroll">
                 <ul className="metismenu" id="menu">
                     <li >
                         {/* <NavLink > */}
-                        <a href='/Dashboard' className="" aria-expanded="false">
+                        <NavLink to='/Dashboard' className="" aria-expanded="false">
                             <div className="menu-icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.5 7.49999L10 1.66666L17.5 7.49999V16.6667C17.5 17.1087 17.3244 17.5326 17.0118 17.8452C16.6993 18.1577 16.2754 18.3333 15.8333 18.3333H4.16667C3.72464 18.3333 3.30072 18.1577 2.98816 17.8452C2.67559 17.5326 2.5 17.1087 2.5 16.6667V7.49999Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
@@ -19,7 +67,7 @@ const SideBar = () => {
                                 </svg>
                             </div>
                             <span className="nav-text" >Dashboard</span>
-                        </a>
+                        </NavLink>
                         {/* <ul aria-expanded="false">
                             <li><a>Dashboard Light</a></li>
                             <li><a>Dashboard Dark</a></li>
@@ -28,7 +76,7 @@ const SideBar = () => {
                     </li>
                     <li>
                         {/* <NavLink style={{ display: 'flex' }}> */}
-                        <a href='/Customers' className="" aria-expanded="false">
+                        <NavLink to='/Customers' className="" aria-expanded="false">
                             <div className="menu-icon" >
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fillRule="evenodd" clipRule="evenodd" d="M10.986 14.0673C7.4407 14.0673 4.41309 14.6034 4.41309 16.7501C4.41309 18.8969 7.4215 19.4521 10.986 19.4521C14.5313 19.4521 17.5581 18.9152 17.5581 16.7693C17.5581 14.6234 14.5505 14.0673 10.986 14.0673Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
@@ -36,12 +84,12 @@ const SideBar = () => {
                                 </svg>
                             </div>
                             <span className="nav-text">Customers</span>
-                        </a>
+                        </NavLink>
                         {/* </NavLink> */}
                     </li>
                     <li>
                         {/* <NavLink style={{ display: 'flex' }}> */}
-                        <a href='/Estimates' className="" aria-expanded="false">
+                        <NavLink to='/Estimates' className="" aria-expanded="false">
                             <div className="menu-icon">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fillRule="evenodd" clipRule="evenodd" d="M15.8381 12.7317C16.4566 12.7317 16.9757 13.2422 16.8811 13.853C16.3263 17.4463 13.2502 20.1143 9.54009 20.1143C5.43536 20.1143 2.10834 16.7873 2.10834 12.6835C2.10834 9.30245 4.67693 6.15297 7.56878 5.44087C8.19018 5.28745 8.82702 5.72455 8.82702 6.36429C8.82702 10.6987 8.97272 11.8199 9.79579 12.4297C10.6189 13.0396 11.5867 12.7317 15.8381 12.7317Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
@@ -49,12 +97,12 @@ const SideBar = () => {
                                 </svg>
                             </div>
                             <span className="nav-text">Estimates</span>
-                        </a>
+                        </NavLink>
                         {/* </NavLink> */}
                     </li>
-                    <li onClick={() => { window.location.href = '/service-requests' }}>
+                    <li >
                         {/* <NavLink style={{ display: 'flex' }}> */}
-                        <a className="" aria-expanded="false">
+                        <NavLink to='/service-requests' className="" aria-expanded="false">
                             <div className="menu-icon">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6.64111 13.5497L9.38482 9.9837L12.5145 12.4421L15.1995 8.97684" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
@@ -63,12 +111,12 @@ const SideBar = () => {
                                 </svg>
                             </div>
                             <span className="nav-text">Service Request</span>
-                        </a>
+                        </NavLink>
                         {/* </NavLink> */}
                     </li>
                     <li>
                         {/* <NavLink style={{ display: 'flex' }}> */}
-                        <a href='/Irrigation-form' className="" aria-expanded="false">
+                        <NavLink to='/Irrigation-form' className="" aria-expanded="false">
                             <div className="menu-icon">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M10.5346 2.55658H7.1072C4.28845 2.55658 2.52112 4.55216 2.52112 7.37733V14.9985C2.52112 17.8237 4.2802 19.8192 7.1072 19.8192H15.1959C18.0238 19.8192 19.7829 17.8237 19.7829 14.9985V11.3062" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
@@ -77,89 +125,109 @@ const SideBar = () => {
                                 </svg>
                             </div>
                             <span className="nav-text">Irrigation</span>
-                        </a>
+                        </NavLink>
                         {/* </NavLink> */}
                     </li>
+
                     {/* <li>
-                       
-                        <a href='/SummaryReport' className="" aria-expanded="false">
+
+                        <NavLink to='/SummaryReport' className="" aria-expanded="false">
                             <div className="menu-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fillRule="evenodd" clipRule="evenodd" d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M13.2688 2.52084V5.18742C13.2688 6.48909 14.3211 7.54417 15.6228 7.54784H18.1482" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M13.0974 14.0786H8.1474" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M11.2229 10.6388H8.14655" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M13.2688 2.52084V5.18742C13.2688 6.48909 14.3211 7.54417 15.6228 7.54784H18.1482" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M13.0974 14.0786H8.1474" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M11.2229 10.6388H8.14655" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
                             </div>
                             <span className="nav-text">Service Request Report</span>
-                        </a>
-                       
+                        </NavLink>
+
                     </li>
                     <li>
-                        
-                        <a href='/ProposalSummary' className="" aria-expanded="false">
+
+                        <NavLink to='/ProposalSummary' className="" aria-expanded="false">
                             <div className="menu-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fillRule="evenodd" clipRule="evenodd" d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M13.2688 2.52084V5.18742C13.2688 6.48909 14.3211 7.54417 15.6228 7.54784H18.1482" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M13.0974 14.0786H8.1474" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M11.2229 10.6388H8.14655" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M13.2688 2.52084V5.18742C13.2688 6.48909 14.3211 7.54417 15.6228 7.54784H18.1482" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M13.0974 14.0786H8.1474" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M11.2229 10.6388H8.14655" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
                             </div>
                             <span className="nav-text">Proposal Summary</span>
-                        </a>
-                        
+                        </NavLink>
+
+                    </li> */}
+                    <li>
+
+                        <NavLink to='/Punchlist' className="" aria-expanded="false">
+                            <div className="menu-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M13.2688 2.52084V5.18742C13.2688 6.48909 14.3211 7.54417 15.6228 7.54784H18.1482" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M13.0974 14.0786H8.1474" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M11.2229 10.6388H8.14655" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </div>
+                            <span className="nav-text"> Punchlist</span>
+                        </NavLink>
+
                     </li>
                     <li>
-                      
-                        <a href='/Landscape' className="" aria-expanded="false">
+
+                        <NavLink to='/Weekly-Reports' className="" aria-expanded="false">
                             <div className="menu-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fillRule="evenodd" clipRule="evenodd" d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M13.2688 2.52084V5.18742C13.2688 6.48909 14.3211 7.54417 15.6228 7.54784H18.1482" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M13.0974 14.0786H8.1474" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M11.2229 10.6388H8.14655" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M13.2688 2.52084V5.18742C13.2688 6.48909 14.3211 7.54417 15.6228 7.54784H18.1482" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M13.0974 14.0786H8.1474" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M11.2229 10.6388H8.14655" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
                             </div>
-                            <span className="nav-text">Landscape Report</span>
-                        </a>
-                       
-                    </li> */}
-                     <li>
-                        {/* <NavLink style={{ display: 'flex' }}> */}
-                        <a href='/LandscapeForm' className="" aria-expanded="false">
-                            <div className="menu-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fillRule="evenodd" clipRule="evenodd" d="M14.7379 2.76181H8.08493C6.00493 2.75381 4.29993 4.41181 4.25093 6.49081V17.2038C4.20493 19.3168 5.87993 21.0678 7.99293 21.1148C8.02393 21.1148 8.05393 21.1158 8.08493 21.1148H16.0739C18.1679 21.0298 19.8179 19.2998 19.8029 17.2038V8.03781L14.7379 2.76181Z" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M14.4751 2.75V5.659C14.4751 7.079 15.6231 8.23 17.0431 8.234H19.7981" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M14.2882 15.3585H8.88818" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M12.2432 11.606H8.88721" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                            </div>
-                            <span className="nav-text">Landsacpe</span>
-                        </a>
-                        {/* </NavLink> */}
+                            <span className="nav-text"> Weekly Reports</span>
+                        </NavLink>
+
                     </li>
+
+
                     <li>
                         <a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
-                    <div className="menu-icon">
+                            <div className="menu-icon">
                             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fillRule="evenodd" clipRule="evenodd" d="M13.5096 2.53165H7.41104C5.50437 2.52432 3.94146 4.04415 3.89654 5.9499V15.7701C3.85437 17.7071 5.38979 19.3121 7.32671 19.3552C7.35512 19.3552 7.38262 19.3561 7.41104 19.3552H14.7343C16.6538 19.2773 18.1663 17.6915 18.1525 15.7701V7.36798L13.5096 2.53165Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M13.2688 2.52084V5.18742C13.2688 6.48909 14.3211 7.54417 15.6228 7.54784H18.1482" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M13.0974 14.0786H8.1474" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M11.2229 10.6388H8.14655" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </div>
-							<span class="nav-text">Monthly Reports</span>
-						</a>
-						<ul aria-expanded="false" class="mm-collapse left" >
-                    
-                      
-							<li><a href="/SummaryReport">Service Request</a></li>
-                            <li><a href="/ProposalSummary">Proposal Summary</a></li>
-						</ul>
-					</li>
-              
+                                    <path d="M6.75713 9.35157V15.64" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M11.0349 6.34253V15.64" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M15.2428 12.6746V15.64" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.2952 1.83333H6.70474C3.7103 1.83333 1.83331 3.95274 1.83331 6.95306V15.0469C1.83331 18.0473 3.70157 20.1667 6.70474 20.1667H15.2952C18.2984 20.1667 20.1666 18.0473 20.1666 15.0469V6.95306C20.1666 3.95274 18.2984 1.83333 15.2952 1.83333Z" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                            <span class="nav-text">Monthly Reports</span>
+                        </a>
+                        <ul aria-expanded="false" class="mm-collapse left" >
+
+
+                            <li><NavLink to="/SummaryReport">Service Request</NavLink></li>
+                            <li><NavLink to="/ProposalSummary">Proposal Summary</NavLink></li>
+                            <li><NavLink to="/Weekly">Weekly </NavLink></li>
+                        </ul>
+                    </li><li>
+                        {/* <NavLink style={{ display: 'flex' }}> */}
+                        <NavLink to='/LandscapeForm' className="" aria-expanded="false">
+                            <div className="menu-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M14.7379 2.76181H8.08493C6.00493 2.75381 4.29993 4.41181 4.25093 6.49081V17.2038C4.20493 19.3168 5.87993 21.0678 7.99293 21.1148C8.02393 21.1148 8.05393 21.1158 8.08493 21.1148H16.0739C18.1679 21.0298 19.8179 19.2998 19.8029 17.2038V8.03781L14.7379 2.76181Z" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M14.4751 2.75V5.659C14.4751 7.079 15.6231 8.23 17.0431 8.234H19.7981" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M14.2882 15.3585H8.88818" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M12.2432 11.606H8.88721" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </div>
+                            <span className="nav-text">Landsacpe</span>
+                        </NavLink>
+                        {/* </NavLink> */}
+                    </li>
+
+
+
                     {/* <li><a className="" aria-expanded="false">
                         <div className="menu-icon">
                             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">

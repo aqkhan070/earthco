@@ -8,29 +8,40 @@ import EstimatePage from './pages/EstimatePage';
 import ServiceRequestsPage from './pages/ServiceRequestsPage';
 import ServiceRequestPage from './pages/ServiceRequestPage';
 import IrrigationPage from './pages/IrrigationPage';
+import irrigation from './components/Irrigation/irrigation';
 import AddEstimatePage from './pages/AddEstimatePage';
 import Audit from './components/Reports/Audit';
 import LandscapeForm from './components/Landscape/Form';
 import Landscape from './components/Landscape/Landscape';
 import SummaryReport from './components/Reports/SummaryReport';
 import ProposalSummary from './components/Reports/ProposalSummary';
+import Weekly from './components/Reports/Weekly';
 import DataFun from './context/AppData';
 import CustomersPage from './pages/CustomersPage';
 import { RoutingContext } from './context/RoutesContext';
 import OpenEstPage from './pages/OpenEstPage';
 import FromDesign from './components/Test Forms/FromDesign';
+import PunchlistPage from './pages/PunchlistPage';
+import PunchlistPreview from './components/PunchLists/PunchlistPreview';
+import WeeklyReport from './components/Reports/WeeklyReport/WeeklyReport';
+import AddWRform from './components/Reports/WeeklyReport/AddWRform';
+import AddCustomerPage from './pages/AddCustomerPage';
 // import '../public/assets/vendor/global/global.min.js'
+
+// import '../public/assets/css/'; 
+// import './public/css/bootstrap-select.min.css'; 
+// import './public/css/custom.css';
+//basename={process.env.PUBLIC_URL}
 
 function App() {
 
-
-
   const { estimateRoute, SRroute } = useContext(RoutingContext);
-  console.log(estimateRoute);
+
   return (
-    <BrowserRouter hashType="hash" basename=''>
+     <BrowserRouter basename={process.env.PUBLIC_URL}>
+
       <Routes>
-        <Route path='/' element={<LoginPage />} />
+        <Route exact path='/' element={<LoginPage />} />
         <Route  path='/Dashboard' element={<DashboardPage />} />
         <Route path='/Employees' element={<EmployeesPage />} />
         <Route path='/Estimates' element={
@@ -48,11 +59,13 @@ function App() {
             <ServiceRequestPage />
           </DataFun>
         } />
-         <Route path='/Audit' element={<Audit />} />
-         <Route path='/LandscapeForm' element={<LandscapeForm />} />
-         <Route path='/Landscape' element={<Landscape />} />
-         <Route path='/SummaryReport' element={<SummaryReport />} />
-         <Route path='/ProposalSummary' element={<ProposalSummary />} />
+        <Route path='/Audit' element={<Audit />} />
+        <Route path='/LandscapeForm' element={<LandscapeForm />} />
+        <Route path='/Landscape' element={<Landscape />} />
+        <Route path='/SummaryReport' element={<SummaryReport />} />
+        <Route path='/ProposalSummary' element={<ProposalSummary />} />
+        <Route path='/Weekly' element={<Weekly />} />
+        <Route path='/irrigation' element={<irrigation />} />
         <Route path='/Irrigation-form' element={<IrrigationPage />} />
         <Route path='/add-estimate' element={<AddEstimatePage />} />
         <Route path='/Customers' element={
@@ -66,6 +79,23 @@ function App() {
           </DataFun>
         } />
         <Route path='/test' element={<FromDesign />} />
+        <Route path='/Punchlist' element={<PunchlistPage />} />
+        <Route path='/PunchlistPreview' element={<PunchlistPreview />} />
+        <Route path='/Weekly-Reports' element={
+          <DataFun>
+            <WeeklyReport />
+          </DataFun>
+        } />
+        <Route path='/Add-Weekly-Report' element={
+          <DataFun>
+            <AddWRform />
+          </DataFun>
+        } />
+        <Route path='/Add-Customer' element={
+          <DataFun>
+            <AddCustomerPage />
+          </DataFun>
+        } />
       </Routes>
     </BrowserRouter>
   );

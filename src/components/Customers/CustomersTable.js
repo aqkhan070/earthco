@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { DataContext } from '../../context/AppData'
 import CustomerTR from './CustomerTR';
 import AddCutomer from './AddCutomer';
+import { NavLink } from 'react-router-dom';
 
 const CustomersTable = () => {
     const { customers } = useContext(DataContext);
@@ -20,10 +21,9 @@ const CustomersTable = () => {
                                 <div className="tbl-caption">
                                     <h4 className="heading mb-0">Customers</h4>
                                     <div>
-                                        <a className="btn btn-primary btn-sm" style={{ marginRight: '20px' }} data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">+ Add Customer</a>
-                                        <button type="button" className="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                                            + Invite Customer
-                                        </button>
+                                        <NavLink to='/Add-Customer'>
+                                            <a className="btn btn-primary btn-sm" role="button">+ Add Customer</a>
+                                        </NavLink>
                                     </div>
                                 </div>
                                 <table id="empoloyees-tblwrapper" className="table">
@@ -35,10 +35,10 @@ const CustomersTable = () => {
                                                     <label className="form-check-label" htmlFor="customCheckBox2"></label>
                                                 </div>
                                             </th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Full Adress</th>
+                                            <th>Customer Name </th>
+                                            <th>Contact Name</th>
+                                            <th>Contact Company </th>
+                                            <th>Contact E-mail</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -50,7 +50,7 @@ const CustomersTable = () => {
                     </div>
                 </div>
             </div>
-            <AddCutomer />
+           
         </div>
     )
 }

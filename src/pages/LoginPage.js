@@ -32,8 +32,8 @@ const LoginPage = () => {
 
                             <div className="card-body">
                                 <div className="logo-header">
-                                    <a href="#" className="logo"><img src='./assets/images/background/earthco_logo.png' alt="" className="width-230 light-logo" style={{ width: '35%',marginLeft:"30%" }} /></a>
-                                    <a href="#" className="logo"><img src='./assets/images/background/earthco_logo.png' alt="" className="width-230 dark-logo" style={{ width: '35%' ,marginLeft:"30%"}} /></a>
+                                    <a href="#" className="logo"><img src='/earthco/assets/images/background/earthco_logo.png' alt="" className="width-230 light-logo" style={{ width: '35%',marginLeft:"30%" }} /></a>
+                                    <a href="#" className="logo"><img src='/earthco/assets/images/background/earthco_logo.png' alt="" className="width-230 dark-logo" style={{ width: '35%' ,marginLeft:"30%"}} /></a>
                                 </div>
 
                                 <nav>
@@ -63,8 +63,8 @@ const LoginPage = () => {
                                                         </div>
                                                     </div>
                                                     <div className="text-center bottom">
-                                                        <button className="btn btn-primary button-md btn-block" type='submit'>Sign Me In</button>
-
+                                                    <NavLink to='/Dashboard' ><button className="btn btn-primary button-md btn-block" type='button'>Sign Me In</button>
+                                                    </NavLink>
                                                     </div>
                                                     {/* <div className="dz-social ">
                                                                         <h5 className="form-title fs-20">Sign In With</h5>

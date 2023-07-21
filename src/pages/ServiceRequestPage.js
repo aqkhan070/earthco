@@ -50,11 +50,17 @@ const ServiceRequestPage = () => {
                                 </div>
                                 <div className="mb-3 col-md-4">
                                     <label className="form-label">Service Location</label>
-                                    <input type="text" className="form-control" placeholder="Service Location" />
+                                    <select class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
+                                        <option>Service Request 1</option>
+                                        <option>Service Request 2</option>
+                                    </select>
                                 </div>
                                 <div className="mb-3 col-md-4">
                                     <label>Contact</label>
-                                    <input type="text" className="form-control" placeholder="Contact" />
+                                    <select class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
+                                        <option>Contact 1</option>
+                                        <option>Contact 2</option>
+                                    </select>
                                 </div>
                             </div>
                         </form>
@@ -80,10 +86,10 @@ const ServiceRequestPage = () => {
                             <AddSRform />
                             <div class="mb-2 row text-end">
                                 <div>
-						<a href='#'><button type='button' class="btn btn-primary me-1">Submit</button></a>
-						<button class="btn btn-danger light ms-1">Cancel</button>
-					</div>
+                                    <a href='#'><button type='button' class="btn btn-primary me-1">Submit</button></a>
+                                    <button class="btn btn-danger light ms-1">Cancel</button>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>

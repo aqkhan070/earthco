@@ -13,23 +13,6 @@ const ServiceRequestsPage = () => {
         <path d="M13.6808 2.86012H7.01867C4.25818 2.86012 2.54651 4.81512 2.54651 7.57561V14.9845C2.54651 17.7449 4.22462 19.6915 7.01867 19.6915H14.9058C17.6663 19.6915 19.3779 17.7449 19.3779 14.9845V8.53213" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 
-    useEffect(() => {
-        var script1 = document.createElement('script1');
-        var script2 = document.createElement('script2');
-        var script3 = document.createElement('script3');
-        script1.type = 'text/javascript';
-        script1.src = '../assets/vendor/global/global.min.js';
-
-        script2.type = 'text/javascript';
-        script2.src = '../assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js';
-
-        script3.type = 'text/javascript';
-        script3.src = '../assets/js/custom.js';
-        document.body.appendChild(script1);
-        document.body.appendChild(script2);
-        document.body.appendChild(script3);
-    })
-
 
     return (
         <>

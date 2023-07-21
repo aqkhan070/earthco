@@ -110,13 +110,15 @@ const Estimates = () => {
                                                     <label className="form-check-label" htmlFor="customCheckBox2"></label>
                                                 </div>
                                             </th>
-                                            <th>Estimate ID</th>
-                                            <th>Customer</th>
-                                            <th>Issued Date</th>
-                                            <th>Approved Total</th>
-                                            <th>Service Request</th>
-                                            <th>QB Status</th>
+                                            <th>Customer Name</th>
+                                            <th>Assign to</th>
+                                            <th>Estimate Number</th>
+                                            <th>Estimate Amount</th>
+                                            <th>Description of Work </th>
+                                            <th>Date Created</th>
                                             <th>Status</th>
+                                            <th>QB Status</th>
+                                          
                                         </tr>
                                     </thead>
                                     <tbody>

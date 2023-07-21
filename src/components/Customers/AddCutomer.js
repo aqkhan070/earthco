@@ -1,138 +1,269 @@
-import React from 'react'
+import React, { useState } from 'react'
+import AdressModal from '../AdressModal';
 
 const AddCutomer = () => {
-    return (
-        <div className="offcanvas offcanvas-end customeoff" tabindex="-1" id="offcanvasExample">
-            <div className="offcanvas-header">
-                <h5 className="modal-title" id="#gridSystemModal">Add Customer</h5>
-                <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-                    <i className="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div className="offcanvas-body">
-                <div className="container-fluid">
-                    <div>
-                        <label>Profile Picture</label>
-                        <div className="dz-default dlab-message upload-img mb-3">
-                            <form action="#" className="dropzone">
-                                <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    <path d="M20.5 20V35" stroke="#DADADA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    <path d="M34.4833 30.6501C36.1088 29.7638 37.393 28.3615 38.1331 26.6644C38.8731 24.9673 39.027 23.0721 38.5703 21.2779C38.1136 19.4836 37.0724 17.8926 35.6111 16.7558C34.1497 15.619 32.3514 15.0013 30.4999 15.0001H28.3999C27.8955 13.0488 26.9552 11.2373 25.6498 9.70171C24.3445 8.16614 22.708 6.94647 20.8634 6.1344C19.0189 5.32233 17.0142 4.93899 15.0001 5.01319C12.9861 5.0874 11.015 5.61722 9.23523 6.56283C7.45541 7.50844 5.91312 8.84523 4.7243 10.4727C3.53549 12.1002 2.73108 13.9759 2.37157 15.959C2.01205 17.9421 2.10678 19.9809 2.64862 21.9222C3.19047 23.8634 4.16534 25.6565 5.49994 27.1667" stroke="#DADADA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    <path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                                <div className="fallback">
-                                    <input name="file" type="file" multiple />
 
-                                </div>
-                            </form>
+    const [contacts, setContacts] = useState([]);
+    const [serviceLocation, setServiceLocation] = useState([]);
+
+    const [contactName, setContactName] = useState();
+    const [email, setEmail] = useState();
+    const [phone, setPhone] = useState();
+    const [mobile, setMobile] = useState();
+    const [showPop1, setShowPop1] = useState(true);
+    const [showPop2, setShowPop2] = useState(true);
+
+    const [SLname, setSLname] = useState();
+    const [SLadress, setSLadress] = useState();
+    const [SLphone, setSLphone] = useState();
+    const [SLfax, setSLfax] = useState();
+
+    const addContact = (e) => {
+        e.preventDefault();
+        const updatedArr = [
+            ...contacts,
+            {
+                name: contactName,
+                eMail: email,
+                Phone: phone,
+                Mob: mobile
+            }
+        ]
+        setContacts(updatedArr);
+
+        setContactName('');
+        setEmail('');
+        setMobile('');
+        setPhone('');
+    }
+
+    const addServiceLocation = (e) => {
+        e.preventDefault();
+        const updatedArr = [
+            ...serviceLocation,
+            {
+                name: SLname,
+                adress: SLadress,
+                Phone: SLphone,
+                fax: SLfax
+            }
+        ]
+        setServiceLocation(updatedArr);
+        setSLname('')
+        setSLadress('')
+        setSLphone('')
+        setSLfax('')
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        showPop2(true)
+    }
+
+    const closePop = (boolState) => {
+        // boolState(true);
+        console.log('hell');
+    }
+    console.log(showPop1);
+
+
+    return (
+
+        <div className="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h4 className="modal-title" id="#gridSystemModal">Customer Info</h4>
+                </div>
+                <div class="card-body">
+                    {/* <form> */}
+                    <div className="row">
+                        <div className="col-xl-6 mb-3">
+                            <label htmlFor="exampleFormControlInput1" className="form-label">First Name <span className="text-danger">*</span></label>
+                            <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="First Name" />
+                        </div>
+                        <div className="col-xl-6 mb-3">
+                            <label htmlFor="exampleFormControlInput2" className="form-label">Last Name<span className="text-danger">*</span></label>
+                            <input type="text" className="form-control" id="exampleFormControlInput2" placeholder="Last Name" />
+                        </div>
+                        <div className="col-xl-6 mb-3">
+                            <label htmlFor="exampleFormControlInput4" className="form-label">Title<span className="text-danger">*</span></label>
+                            <input type="text" className="form-control" id="exampleFormControlInput4" placeholder="Title" />
+                        </div>
+                        <div className="col-xl-6 mb-3">
+                            <label className="form-label">Company Name<span className="text-danger">*</span></label>
+                            <input type="text" className="form-control" id="exampleFormControlInput3" placeholder="Company Name" />
+                        </div>
+                        <div className="col-xl-6" style={{ position: 'relative' }}>
+                            <label className="form-label">Adress<span className="text-danger">*</span></label>
+                            <input type="text" onClick={() => { setShowPop1(!showPop1) }} style={{ cursor: 'pointer' }} className="form-control" id="exampleFormControlInput3" placeholder="Adress" readOnly />
+                            {showPop1 || <AdressModal boolState={setShowPop1} />}
+                        </div>
+                        <div className="col-xl-6 ">
+                            <label className="form-label">Description<span className="text-danger">*</span></label>
+                            <textarea class="form-txtarea form-control" rows="4" id="comment"></textarea>
                         </div>
                     </div>
-                    <form>
-                        <div className="row">
-                            <div className="col-xl-6 mb-3">
-                                <label htmlFor="exampleFormControlInput1" className="form-label">Customer ID <span className="text-danger">*</span></label>
-                                <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="" />
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label htmlFor="exampleFormControlInput2" className="form-label">Customer Name<span className="text-danger">*</span></label>
-                                <input type="text" className="form-control" id="exampleFormControlInput2" placeholder="" />
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label htmlFor="exampleFormControlInput3" className="form-label">Customer Email<span className="text-danger">*</span></label>
-                                <input type="email" className="form-control" id="exampleFormControlInput3" placeholder="" />
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label htmlFor="exampleFormControlInput4" className="form-label">Password<span className="text-danger">*</span></label>
-                                <input type="password" className="form-control" id="exampleFormControlInput4" placeholder="" />
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label className="form-label">Designation<span className="text-danger">*</span></label>
-                                <select className="default-select form-control">
-                                    <option data-display="Select">Please select</option>
-                                    <option value="html">Software Engineer</option>
-                                    <option value="css">Civil Engineer</option>
-                                    <option value="javascript">Web Doveloper</option>
-                                </select>
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label className="form-label">Department<span className="text-danger">*</span></label>
-                                <select className="default-select form-control">
-                                    <option data-display="Select">Please select</option>
-                                    <option value="html">Software</option>
-                                    <option value="css">Doit</option>
-                                    <option value="javascript">Designing</option>
-                                </select>
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label className="form-label">Country<span className="text-danger">*</span></label>
-                                <select className="default-select form-control">
-                                    <option data-display="Select">Please select</option>
-                                    <option value="html">Ind</option>
-                                    <option value="css">USA</option>
-                                    <option value="javascript">UK</option>
-                                </select>
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label htmlFor="exampleFormControlInput88" className="form-label">Mobile<span className="text-danger">*</span></label>
-                                <input type="number" className="form-control" id="exampleFormControlInput88" placeholder="" />
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label className="form-label">Gender<span className="text-danger">*</span></label>
-                                <select className="default-select form-control">
-                                    <option data-display="Select">Please select</option>
-                                    <option value="html">Male</option>
-                                    <option value="css">Female</option>
-                                    <option value="javascript">Other</option>
-                                </select>
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label htmlFor="exampleFormControlInput99" className="form-label">Joining Date<span className="text-danger">*</span></label>
-                                <input type="date" className="form-control" id="exampleFormControlInput99" />
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label htmlFor="exampleFormControlInput8" className="form-label">Date of Birth<span className="text-danger">*</span></label>
-                                <input type="date" className="form-control" id="exampleFormControlInput8" />
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label htmlFor="exampleFormControlInput10" className="form-label">Reporting To<span className="text-danger">*</span></label>
-                                <input type="text" className="form-control" id="exampleFormControlInput10" placeholder="" />
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label className="form-label">Language Select<span className="text-danger">*</span></label>
-                                <select className="default-select form-control">
-                                    <option data-display="Select">Please select</option>
-                                    <option value="html">English</option>
-                                    <option value="css">Hindi</option>
-                                    <option value="javascript">Canada</option>
-                                </select>
-                            </div>
-                            <div className="col-xl-6 mb-3">
-                                <label className="form-label">User Role<span className="text-danger">*</span></label>
-                                <select className="default-select form-control">
-                                    <option data-display="Select">Please select</option>
-                                    <option value="html">Parmanent</option>
-                                    <option value="css">Parttime</option>
-                                    <option value="javascript">Per Hours</option>
-                                </select>
-                            </div>
-                            <div className="col-xl-12 mb-3">
-                                <label className="form-label">Address<span className="text-danger">*</span></label>
-                                <textarea rows="2" className="form-control"></textarea>
-                            </div>
-                            <div className="col-xl-12 mb-3">
-                                <label className="form-label">About<span className="text-danger">*</span></label>
-                                <textarea rows="2" className="form-control"></textarea>
-                            </div>
-                        </div>
-                        <div>
-                            <button className="btn btn-primary me-1">Help Desk</button>
-                            <button type="button" class="btn btn-danger light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Close</button>
-                        </div>
-                    </form>
                 </div>
             </div>
-        </div>
+
+            <form onSubmit={addContact}>
+                <div class="card">
+                    <div class="card-header">
+                        <h4 className="modal-title" id="#gridSystemModal">Contact</h4>
+                    </div>
+                    <div class="card-body">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="row">
+                                    <div className="col-xl-4 mb-3">
+                                        <label className="form-label">Contact Name<span className="text-danger">*</span></label>
+                                        <input type="text" className="form-control" value={contactName} onChange={(e) => setContactName(e.target.value)} placeholder="Contact Name" required />
+                                    </div>
+                                    <div className="col-xl-4 mb-3">
+                                        <label className="form-label">Email<span className="text-danger">*</span></label>
+                                        <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
+                                    </div>
+                                    <div className="col-xl-4 mb-3">
+                                        <label className="form-label">Phone<span className="text-danger">*</span></label>
+                                        <input type="number" className="form-control" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" required />
+                                    </div>
+                                    <div className="col-xl-4 mb-3">
+                                        <label className="form-label">Mobile<span className="text-danger">*</span></label>
+                                        <input type="number" className="form-control" value={mobile} onChange={(e) => setMobile(e.target.value)} placeholder="Mobile" required />
+                                    </div>
+                                    <div className="col-xl-4 mb-3" style={{ display: 'flex', alignItems: 'center', paddingTop: '26px' }}>
+                                        <button className="btn btn-primary">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-xl-12">
+                            <div className="card">
+                                <div className="card-body p-0">
+                                    <div className="estDataBox">
+                                        <div className="itemtitleBar">
+                                            <h4>Contacts</h4>
+                                        </div>
+                                        <div className="table-responsive active-projects style-1">
+                                            <table id="empoloyees-tblwrapper" className="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Contact Name</th>
+                                                        <th>E-mail</th>
+                                                        <th>Phone</th>
+                                                        <th>Mobile</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {contacts.map((contact) => {
+                                                        return (
+                                                            <>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>{contact.name}</td>
+                                                                    <td>{contact.eMail}</td>
+                                                                    <td>{contact.Phone}</td>
+                                                                    <td>{contact.Mob}</td>
+                                                                </tr>
+                                                            </>
+                                                        )
+                                                    })}
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <form onSubmit={addServiceLocation}>
+                <div class="card">
+                    <div class="card-header">
+                        <h4 className="modal-title" id="#gridSystemModal">Service Locations</h4>
+                    </div>
+                    <div class="card-body">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="row">
+                                    <div className="col-xl-4 mb-3">
+                                        <label className="form-label">Name<span className="text-danger">*</span></label>
+                                        <input type="text" className="form-control" value={SLname} onChange={(e) => setSLname(e.target.value)} placeholder="Name" required />
+                                    </div>
+                                    <div className="col-xl-4 mb-3" style={{ position: 'relative' }}>
+                                        <label className="form-label">Adress<span className="text-danger">*</span></label>
+                                        <input type="text" onClick={() => { setShowPop2(!showPop2) }} style={{ cursor: 'pointer' }} className="form-control" id="exampleFormControlInput3" placeholder="Adress" readOnly />
+                                        {showPop2 || <AdressModal boolState={setShowPop2} />}
+
+                                    </div>
+                                    <div className="col-xl-4 mb-3">
+                                        <label className="form-label">Phone<span className="text-danger">*</span></label>
+                                        <input type="text" className="form-control" value={SLphone} onChange={(e) => setSLphone(e.target.value)} placeholder="Phone" required />
+                                    </div>
+                                    <div className="col-xl-4 mb-3">
+                                        <label className="form-label">Customer Fax<span className="text-danger">*</span></label>
+                                        <input type="text" className="form-control" value={SLfax} onChange={(e) => setSLfax(e.target.value)} placeholder="Mobile" required />
+                                    </div>
+                                    <div className="col-xl-4 mb-3" style={{ display: 'flex', alignItems: 'center', paddingTop: '26px' }}>
+                                        <button className="btn btn-primary">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-xl-12">
+                            <div className="card">
+                                <div className="card-body p-0">
+                                    <div className="estDataBox">
+                                        <div className="itemtitleBar">
+                                            <h4>Service Locations</h4>
+                                        </div>
+                                        <div className="table-responsive active-projects style-1">
+                                            <table id="empoloyees-tblwrapper" className="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Name</th>
+                                                        <th>Address</th>
+                                                        <th>Phone</th>
+                                                        <th>Customer Fax</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {serviceLocation.map((contact) => {
+                                                        return (
+                                                            <>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>{contact.name}</td>
+                                                                    <td>{contact.adress}</td>
+                                                                    <td>{contact.Phone}</td>
+                                                                    <td>{contact.fax}</td>
+                                                                </tr>
+                                                            </>
+                                                        )
+                                                    })}
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+            <div className='text-end'>
+                <button className="btn btn-primary me-1">Submit</button>
+            </div>
+            {/* </form > */}
+        </div >
     )
 }
 

@@ -16,11 +16,11 @@ const CustomerTR = ({ customer }) => {
                     </div>
                 </div>
             </td>
-            <td><span>{customer.email}</span></td>
+            <td><span>{customer.name}</span></td>
             <td>
-                <span className="text-primary">{customer.phone}</span>
+                <span >{customer.fullAdress}</span>
             </td>
-            <td><span>{customer.fullAdress}</span></td>
+            <td><span className="text-primary">{customer.email}</span></td>
         </tr>
     )
 }

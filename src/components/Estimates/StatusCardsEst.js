@@ -97,54 +97,53 @@ const StatusCardsEst = ({ drafts, sent, approved, rejected, total }) => {
                             <div class="col-xl-2 col-sm-4 col-6">
                                 <div class="task-summary">
                                     <div class="d-flex align-items-baseline">
-                                        <h2 class="text-primary count">28,1045</h2>
+                                        <h2 class="text-purple count">28,1045</h2>
                                     </div>
-                                    <span>Drafts</span>
+                                    <span>Open Estimates</span>
                                     {/* <p>Tasks assigne</p> */}
                                 </div>
                             </div>
                             <div class="col-xl-2 col-sm-4 col-6">
                                 <div class="task-summary">
                                     <div class="d-flex align-items-baseline">
-                                        <h2 class="text-purple count">7,092</h2>
+                                        <h2 class="text-warning count">7,092</h2>
                                     </div>
-                                    <span>Sent</span>
+                                    <span>Total Estimates</span>
                                     {/* <p>Tasks assigne</p> */}
                                 </div>
                             </div>
                             <div class="col-xl-2 col-sm-4 col-6">
                                 <div class="task-summary">
                                     <div class="d-flex align-items-baseline">
-                                        <h2 class="text-danger count">478</h2>
+                                        <h2 class="text-secondary count">478,000 $</h2>
                                     </div>
-                                    <span>Not Sent</span>
+                                    <span>Amount of Opened Estimats</span>
                                 </div>
                             </div>
                             <div class="col-xl-2 col-sm-4 col-6">
                                 <div class="task-summary">
                                     <div class="d-flex align-items-baseline">
-                                        <h2 class="text-warning count">4,578</h2>
+                                        <h2 class="count" style={{ color: '#2962ff' }}>28,1045</h2>
                                     </div>
-                                    <span>Approved</span>
+                                    <span>Open Estimates</span>
                                     {/* <p>Tasks assigne</p> */}
                                 </div>
                             </div>
                             <div class="col-xl-2 col-sm-4 col-6">
                                 <div class="task-summary">
                                     <div class="d-flex align-items-baseline">
-                                        <h2 class="text-success count">145</h2>
+                                        <h2 class="text-success count">7,092</h2>
                                     </div>
-                                    <span>Rejected</span>
+                                    <span>Total Estimates</span>
                                     {/* <p>Tasks assigne</p> */}
                                 </div>
                             </div>
                             <div class="col-xl-2 col-sm-4 col-6">
                                 <div class="task-summary">
                                     <div class="d-flex align-items-baseline">
-                                        <h2 class="text-danger count">30,920</h2>
+                                        <h2 class="text-secondary count">478,000 $</h2>
                                     </div>
-                                    <span>Total</span>
-                                    {/* <p>Tasks assigne</p> */}
+                                    <span>Amount of Opened Estimats</span>
                                 </div>
                             </div>
                         </div>

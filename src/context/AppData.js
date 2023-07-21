@@ -76,7 +76,7 @@ const DataFun = ({ children }) => {
             name: 'Sunrise Lane',
             email: 'mark334@gmail.com',
             phone: '+91 123 456 7890',
-            fullAdress: 'Joyce Lee, 22 Boulder View, Irvine, CA, US 92603',
+            fullAdress: 'Joyce Lee',
             serviceLocations: [
                 'Los Angeles',
                 'Boulder View',
@@ -88,7 +88,7 @@ const DataFun = ({ children }) => {
             name: 'Wakeham',
             email: 'danm@earthcompany.org',
             phone: '+91 123 456 7890',
-            fullAdress: 'Teresa Brim - Essex Realty, US',
+            fullAdress: 'Teresa Brim ',
             serviceLocations: [
                 'Teresa Brim',
                 'Realty, US'
@@ -99,7 +99,7 @@ const DataFun = ({ children }) => {
             name: 'Hillandale Ave',
             email: 'Jchavis@keystonepacific.com',
             phone: '+91 123 456 7890',
-            fullAdress: 'Jeremy Chavis, Keystone Pacific Property Mamagement, US',
+            fullAdress: 'Jeremy Chavis',
             serviceLocations: [
                 'Jeremy Chavis',
                 'Keystone Pacific',
@@ -111,7 +111,7 @@ const DataFun = ({ children }) => {
             name: 'Crest DeVille',
             email: 'aspyn@marandassociates.com',
             phone: '+91 123 456 7890',
-            fullAdress: 'Aspyn Remington, Newport Pacific, US',
+            fullAdress: 'Aspyn Remington',
             serviceLocations: [
                 'Aspyn Remington',
                 'Newport Pacific, US'
@@ -122,7 +122,7 @@ const DataFun = ({ children }) => {
             name: 'Sea Summit',
             email: 'Devon511586@gmail.com',
             phone: '+91 123 456 7890',
-            fullAdress: 'Devon, Property Manager, US',
+            fullAdress: 'Devon',
             serviceLocations: [
                 'Devon',
                 'Newport Pacific, US'
@@ -133,7 +133,7 @@ const DataFun = ({ children }) => {
             name: 'Bella Palermo',
             email: 'Jsttp@aol.com',
             phone: '+91 123 456 7890',
-            fullAdress: 'Brian Jacobs, Jacobs Construction, US',
+            fullAdress: 'Brian Jacobs',
             serviceLocations: [
                 'Brian Jacobs',
                 'Jacobs Construction, US'
@@ -144,7 +144,7 @@ const DataFun = ({ children }) => {
             name: 'Valmont',
             email: 'Kaitlyn.Scott@springwisefm.com',
             phone: '+91 123 456 7890',
-            fullAdress: 'Danny Lemansky, 2312 Park Ave, 433 Tustin, US CA',
+            fullAdress: 'Danny Lemansky',
             serviceLocations: [
                 'Danny Lemansky',
                 'Park Ave, 433',
@@ -156,7 +156,7 @@ const DataFun = ({ children }) => {
             name: 'Promenade',
             email: 'Mmayer@smes.org',
             phone: '+91 123 456 7890',
-            fullAdress: 'Danny Lemansky, 2312 Park Ave, 433., US Tustin',
+            fullAdress: 'Danny Lemansky',
             serviceLocations: [
                 'Danny Lemansky',
                 'Park Ave, 433',
@@ -168,7 +168,7 @@ const DataFun = ({ children }) => {
             name: 'Highland Park',
             email: 'ezequiel.rubin@outlook.com',
             phone: '+91 123 456 7890',
-            fullAdress: 'Danny Lemansky, 2312 Park Ave, 433., US Tustin',
+            fullAdress: 'Danny Lemansky',
             serviceLocations: [
                 'Danny Lemansky',
                 'Park Ave, 433',
@@ -204,9 +204,34 @@ const DataFun = ({ children }) => {
         }
     ]);
 
+    const [contacts, setContacts] = useState([]);
+
+    const [wReportData, setWReportData] = useState([
+        {
+            id: 742246,
+            assign: 'Vincente, Allan',
+            customer: 'Wakeham',
+            status: 'Closed',
+            created: '1/17/2014 4:29 PM',
+            estTotal: '$0.00',
+            workRequested: 'hrthsertae'
+        }
+    ])
+
+    const [estimateItems, setEstimateItems] = useState([
+        {
+            id: 'item1',
+            name: '05GP',
+            qty: 10,
+            description: '5 Gallon Plant - Carissa m. Green Carpet',
+            rate: 38.00,
+            tax: 'Non',
+        }
+    ])
+
 
     return (
-        <DataContext.Provider value={{ estimates, setEstimates, customers, setCustomers, singleObj, setSingleObj, serviceRequests, setServiceRequest, singleSR, setSingleSR }}>
+        <DataContext.Provider value={{ contacts, setContacts, estimates, setEstimates, customers, setCustomers, singleObj, setSingleObj, serviceRequests, setServiceRequest, singleSR, setSingleSR, estimateItems, setEstimateItems, wReportData, setWReportData }}>
             {children}
         </DataContext.Provider>
     )

@@ -1,6 +1,60 @@
+import { useContext, useState } from 'react'
 import StatusActions from '../StatusActions'
+import { DataContext } from '../../context/AppData'
 
 const OpenedEstimate = ({ oneEstimate, customer }) => {
+
+    const { estimateItems } = useContext(DataContext);
+
+    const [itemObj, setItemObj] = useState(estimateItems)
+    const [itemName, setItemName] = useState();
+    const [itemQty, setItemQty] = useState();
+    const [itemDesc, setItemDesc] = useState();
+    const [rate, setRate] = useState();
+
+    const addItem = () => {
+        const updatedArr = [
+            ...itemObj, {
+                id: `item${Math.round(Math.random() * 999)}`,
+                name: itemName,
+                qty: itemQty,
+                description: itemDesc,
+                rate: rate,
+                tax: 'Non',
+            }
+        ]
+        setItemObj(updatedArr)
+        setItemName('');
+        setItemQty('');
+        setItemDesc('');
+        setRate('')
+    }
+
+    const renderItems = itemObj.map((item) => {
+        return (
+            <tr>
+                <td><span>{item.qty}</span></td>
+                <td>
+                    <div className="products">
+                        <div>
+                            <h6>{item.name}</h6>
+                        </div>
+                    </div>
+                </td>
+                <td><span>{item.description}</span></td>
+                <td><span className="text-primary">${item.rate}</span></td>
+                <td>
+                    <span>${item.rate}</span>
+                </td>
+                <td>
+                    <span>{item.tax}</span>
+                </td>
+                <td>
+                    <input type='checkbox' checked />
+                </td>
+            </tr>
+        )
+    })
 
 
     return (
@@ -63,25 +117,25 @@ const OpenedEstimate = ({ oneEstimate, customer }) => {
                                     <div className="mb-3 row">
                                         <label className="col-sm-3 col-form-label">Name</label>
                                         <div className="col-sm-9">
-                                            <input type="text" className="form-control" placeholder="Name" />
+                                            <input type="text" value={itemName} onChange={(e) => setItemName(e.target.value)} className="form-control" placeholder="Name" />
                                         </div>
                                     </div>
                                     <div className="mb-3 row">
                                         <label className="col-sm-3 col-form-label">Quantity</label>
                                         <div className="col-sm-9">
-                                            <input type="number" className="form-control" placeholder="Quantity" />
+                                            <input type="number" value={itemQty} onChange={(e) => setItemQty(e.target.value)} className="form-control" placeholder="Quantity" />
                                         </div>
                                     </div>
                                     <div className="mb-3 row">
                                         <label className="col-sm-3 col-form-label">Description</label>
                                         <div className="col-sm-9">
-                                            <textarea className="form-txtarea form-control" rows="3" id="comment"></textarea>
+                                            <textarea className="form-txtarea form-control" value={itemDesc} onChange={(e) => setItemDesc(e.target.value)} rows="3" id="comment"></textarea>
                                         </div>
                                     </div>
                                     <div className="mb-3 row">
                                         <label className="col-sm-3 col-form-label">Rate</label>
                                         <div className="col-sm-9">
-                                            <input type="number" className="form-control" placeholder="Rate" />
+                                            <input type="number" value={rate} onChange={(e) => setRate(e.target.value)} className="form-control" placeholder="Rate" />
                                         </div>
                                     </div>
                                     <div className="mb-3 row">
@@ -106,7 +160,7 @@ const OpenedEstimate = ({ oneEstimate, customer }) => {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Save</button>
+                            <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={addItem}>Save</button>
                         </div>
                     </div>
                 </div>
@@ -133,98 +187,7 @@ const OpenedEstimate = ({ oneEstimate, customer }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><span>1001</span></td>
-                                        <td>
-                                            <div className="products">
-                                                <div>
-                                                    <h6>Liam Antony</h6>
-
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><span>Computer Science</span></td>
-                                        <td><span className="text-primary">abc@gmail.com</span></td>
-                                        <td>
-                                            <span>+91 123 456 7890</span>
-                                        </td>
-                                        <td>
-                                            <span>Male</span>
-                                        </td>
-                                        <td>
-                                            <span className="badge badge-success light border-0">Active</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>1001</span></td>
-                                        <td>
-                                            <div className="products">
-                                                <div>
-                                                    <h6>Noah Oliver</h6>
-
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><span>Computer Science</span></td>
-                                        <td><span className="text-primary">abc@gmail.com</span></td>
-                                        <td>
-                                            <span>+91 123 456 7890</span>
-                                        </td>
-                                        <td>
-                                            <span>Male</span>
-                                        </td>
-
-                                        <td>
-                                            <span className="badge badge-danger light border-0">Active</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>1001</span></td>
-                                        <td>
-                                            <div className="products">
-                                                <div>
-                                                    <h6>Elijah James</h6>
-
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><span>Computer Science</span></td>
-                                        <td><span className="text-primary">abc@gmail.com</span></td>
-                                        <td>
-                                            <span>+91 123 456 7890</span>
-                                        </td>
-                                        <td>
-                                            <span>Male</span>
-                                        </td>
-
-                                        <td>
-                                            <span className="badge badge-success light border-0">Active</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><span>1001</span></td>
-                                        <td>
-                                            <div className="products">
-                                                <div>
-                                                    <h6>Liam Antony</h6>
-
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><span>Computer Science</span></td>
-                                        <td><span className="text-primary">abc@gmail.com</span></td>
-                                        <td>
-                                            <span>+91 123 456 7890</span>
-                                        </td>
-                                        <td>
-                                            <span>Male</span>
-                                        </td>
-                                        <td>
-                                            <span className="badge badge-success light border-0">Active</span>
-                                        </td>
-                                    </tr>
-
-
+                                    {renderItems}
                                 </tbody>
 
                             </table>

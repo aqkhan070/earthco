@@ -16,7 +16,7 @@ const EstimateTR = ({ estimate, onClick }) => {
                         <label className="form-check-label" htmlFor="customCheckBox2"></label>
                     </div>
                 </td>
-                <td><span>{estimate.estimateID}</span></td>
+               
                 <td>
                     <div className="products">
                         <div>
@@ -24,17 +24,24 @@ const EstimateTR = ({ estimate, onClick }) => {
                         </div>
                     </div>
                 </td>
-                <td><span>{estimate.issuedDate}</span></td>
+                <td>
+                    
+                            <h6>{estimate.customerName}</h6>
+                       
+                </td> <td><span>{estimate.estimateID}</span></td>
+               
                 <td><span>${estimate.approvedTotal}</span></td>
                 <td>
-                    <span>{estimate.SRstatus} : {estimate.serviceRequest}{estimate.estimateID})</span>
-                </td>
-                <td>
-                    <span>{estimate.QBstatus}</span>
+                    <span>{estimate.SRstatus} : {estimate.serviceRequest}{estimate.estimateID}</span>
                 </td>
                 <td>
                     <span className="badge badge-success light border-0">{estimate.status}</span>
                 </td>
+                <td><span>{estimate.issuedDate}</span></td>
+                <td>
+                    <span>{estimate.QBstatus}</span>
+                </td>
+               
             </tr>
         </NavLink>
     )
