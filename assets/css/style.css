@@ -103,7 +103,9 @@
     --font-family-title: poppins, sans-serif, sans-serif;
     --title: #374557;
 }
-
+.addborder {
+    border: 1px solid #789a3d;
+}
 .tdbreak {
     word-wrap: wrap
 }
