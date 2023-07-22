@@ -103,6 +103,9 @@
     --font-family-title: poppins, sans-serif, sans-serif;
     --title: #374557;
 }
+.weeklyimages{
+    width: -webkit-fill-available; height: -webkit-fill-available;
+}
 .addborder {
     border: 1px solid #789a3d;
 }
