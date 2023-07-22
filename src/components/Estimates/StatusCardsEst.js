@@ -120,32 +120,7 @@ const StatusCardsEst = ({ drafts, sent, approved, rejected, total }) => {
                                     <span>Amount of Opened Estimats</span>
                                 </div>
                             </div>
-                            <div class="col-xl-2 col-sm-4 col-6">
-                                <div class="task-summary">
-                                    <div class="d-flex align-items-baseline">
-                                        <h2 class="count" style={{ color: '#2962ff' }}>28,1045</h2>
-                                    </div>
-                                    <span>Open Estimates</span>
-                                    {/* <p>Tasks assigne</p> */}
-                                </div>
-                            </div>
-                            <div class="col-xl-2 col-sm-4 col-6">
-                                <div class="task-summary">
-                                    <div class="d-flex align-items-baseline">
-                                        <h2 class="text-success count">7,092</h2>
-                                    </div>
-                                    <span>Total Estimates</span>
-                                    {/* <p>Tasks assigne</p> */}
-                                </div>
-                            </div>
-                            <div class="col-xl-2 col-sm-4 col-6">
-                                <div class="task-summary">
-                                    <div class="d-flex align-items-baseline">
-                                        <h2 class="text-secondary count">478,000 $</h2>
-                                    </div>
-                                    <span>Amount of Opened Estimats</span>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
