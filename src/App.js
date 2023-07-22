@@ -15,7 +15,7 @@ import LandscapeForm from './components/Landscape/Form';
 import Landscape from './components/Landscape/Landscape';
 import SummaryReport from './components/Reports/SummaryReport';
 import ProposalSummary from './components/Reports/ProposalSummary';
-import Weekly from './components/Reports/Weekly';
+import WeeklyReport from './components/Reports/WeeklyReport';
 import DataFun from './context/AppData';
 import CustomersPage from './pages/CustomersPage';
 import { RoutingContext } from './context/RoutesContext';
@@ -23,7 +23,7 @@ import OpenEstPage from './pages/OpenEstPage';
 import FromDesign from './components/Test Forms/FromDesign';
 import PunchlistPage from './pages/PunchlistPage';
 import PunchlistPreview from './components/PunchLists/PunchlistPreview';
-import WeeklyReport from './components/Reports/WeeklyReport/WeeklyReport';
+import WeeklyReportlist from './components/Reports/WeeklyReport/WeeklyReportlist';
 import AddWRform from './components/Reports/WeeklyReport/AddWRform';
 import AddCustomerPage from './pages/AddCustomerPage';
 // import '../public/assets/vendor/global/global.min.js'
@@ -38,7 +38,7 @@ function App() {
   const { estimateRoute, SRroute } = useContext(RoutingContext);
 
   return (
-     <BrowserRouter basename={process.env.PUBLIC_URL}>
+     <BrowserRouter >
 
       <Routes>
         <Route exact path='/' element={<LoginPage />} />
@@ -64,7 +64,7 @@ function App() {
         <Route path='/Landscape' element={<Landscape />} />
         <Route path='/SummaryReport' element={<SummaryReport />} />
         <Route path='/ProposalSummary' element={<ProposalSummary />} />
-        <Route path='/Weekly' element={<Weekly />} />
+        <Route path='/WeeklyReport' element={<WeeklyReport />} />
         <Route path='/irrigation' element={<irrigation />} />
         <Route path='/Irrigation-form' element={<IrrigationPage />} />
         <Route path='/add-estimate' element={<AddEstimatePage />} />
@@ -83,7 +83,7 @@ function App() {
         <Route path='/PunchlistPreview' element={<PunchlistPreview />} />
         <Route path='/Weekly-Reports' element={
           <DataFun>
-            <WeeklyReport />
+            <WeeklyReportlist />
           </DataFun>
         } />
         <Route path='/Add-Weekly-Report' element={

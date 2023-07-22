@@ -208,7 +208,7 @@ const SideBar = () => {
 
                             <li><NavLink to="/SummaryReport">Service Request</NavLink></li>
                             <li><NavLink to="/ProposalSummary">Proposal Summary</NavLink></li>
-                            <li><NavLink to="/Weekly">Weekly </NavLink></li>
+                            <li><NavLink to="/WeeklyReport">Weekly </NavLink></li>
                         </ul>
                     </li><li>
                         {/* <NavLink style={{ display: 'flex' }}> */}

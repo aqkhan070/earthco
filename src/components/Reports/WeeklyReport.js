@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import Footer from '../Footer'
 
 
-const Weekly = () => {
+const WeeklyReport = () => {
    
     return (
         <>
@@ -88,18 +88,18 @@ const Weekly = () => {
                                     <div> <h5><strong>Photos:</strong></h5>  </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <img src="~/assets/images/1.jpg"  style=" width: -webkit-fill-available; height: -webkit-fill-available;"/>
+                                    <img src="./assets/images/1.jpg"  style=" width: -webkit-fill-available; height: -webkit-fill-available;"/>
                                 </div>
                                 <div class="col-md-3" >
-                                    <img src="~/assets/images/2.jpg" style=" width: -webkit-fill-available; height: -webkit-fill-available;" />
+                                    <img src="./assets/images/2.jpg" style=" width: -webkit-fill-available; height: -webkit-fill-available;" />
 
                                 </div>
                                 <div class="col-md-3" >
-                                    <img src="~/assets/images/3.jpg" style=" width: -webkit-fill-available; height: -webkit-fill-available;" />
+                                    <img src="./assets/images/3.jpg" style=" width: -webkit-fill-available; height: -webkit-fill-available;" />
 
                                 </div>
                                 <div class="col-md-3" >
-                                    <img src="~/assets/images/4.jpg" style=" width: -webkit-fill-available; height: -webkit-fill-available;" />
+                                    <img src="./assets/images/4.jpg" style=" width: -webkit-fill-available; height: -webkit-fill-available;" />
 
                                 </div>
                             </div>
@@ -114,4 +114,4 @@ const Weekly = () => {
     )
 }
 
-export default Weekly
+export default WeeklyReport
