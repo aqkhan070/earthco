@@ -37,7 +37,7 @@ const WeeklyReportlist = () => {
                 <td>${item.estTotal}</td>
                 <td>{item.workRequested}</td>
                 <td>
-                    <NavLink to='/Weekly'>
+                    <NavLink to='/WeeklyReport'>
                         <span class="badge badge-primary light border-0 me-1">Open Report</span>
                     </NavLink>
                 </td>

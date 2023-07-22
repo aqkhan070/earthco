@@ -1,9 +1,7 @@
 import React from 'react'
-import { useContext } from 'react'
-import { DataContext } from '../../context/AppData'
 import { NavLink } from 'react-router-dom';
 
-const irrigation = () => {
+const irrigationlist = () => {
 
 
  
@@ -17,7 +15,7 @@ const irrigation = () => {
                                 <div className="tbl-caption">
                                     <h4 className="heading mb-0">Irrigation</h4>
                                     <div>
-                                        <NavLink to='/Irrigation-form'>
+                                        <NavLink to='/IrrigationForm'>
                                             <a className="btn btn-primary btn-sm" role="button">+ Add New</a>
                                         </NavLink>
                                     </div>
@@ -72,4 +70,4 @@ const irrigation = () => {
     )
 }
 
-export default irrigation
+export default irrigationlist

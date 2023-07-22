@@ -1,8 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
+import StaticComps from '../StaticComps'
+import Footer from '../Footer'
 const IrrigationForm = () => {
     return (
+        <>
+        <StaticComps />
+        <div className="content-body">
         <div className="card-body">
             <div className="card">
                 <div className="card-body p-0">
@@ -191,6 +195,9 @@ const IrrigationForm = () => {
                 </div>
             </div>
         </div>
+        </div>
+         <Footer />
+         </>
     )
 }
 

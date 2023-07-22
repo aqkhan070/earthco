@@ -9,8 +9,8 @@ const TitleBar = ({ icon, title }) => {
                 </div>
                 <li><h5 className="bc-title">{title}</h5></li>
             </ol>
-            <a className="text-primary fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Task</a>
-        </div>
+            {/* <a className="text-primary fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Task</a>*/}
+        </div> 
     )
 }
 

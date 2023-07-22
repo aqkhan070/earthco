@@ -8,11 +8,13 @@ import EstimatePage from './pages/EstimatePage';
 import ServiceRequestsPage from './pages/ServiceRequestsPage';
 import ServiceRequestPage from './pages/ServiceRequestPage';
 import IrrigationPage from './pages/IrrigationPage';
-import irrigation from './components/Irrigation/irrigation';
+import IrrigationForm from './components/Irrigation/IrrigationForm';
+
 import AddEstimatePage from './pages/AddEstimatePage';
 import Audit from './components/Reports/Audit';
 import LandscapeForm from './components/Landscape/Form';
 import Landscape from './components/Landscape/Landscape';
+import Landscapelist from './components/Landscape/Landscapelist';
 import SummaryReport from './components/Reports/SummaryReport';
 import ProposalSummary from './components/Reports/ProposalSummary';
 import WeeklyReport from './components/Reports/WeeklyReport';
@@ -38,7 +40,7 @@ function App() {
   const { estimateRoute, SRroute } = useContext(RoutingContext);
 
   return (
-     <BrowserRouter >
+     <BrowserRouter basename={process.env.PUBLIC_URL}>
 
       <Routes>
         <Route exact path='/' element={<LoginPage />} />
@@ -61,11 +63,12 @@ function App() {
         } />
         <Route path='/Audit' element={<Audit />} />
         <Route path='/LandscapeForm' element={<LandscapeForm />} />
+        <Route path='/Landscapelist' element={<Landscapelist />} />
         <Route path='/Landscape' element={<Landscape />} />
         <Route path='/SummaryReport' element={<SummaryReport />} />
         <Route path='/ProposalSummary' element={<ProposalSummary />} />
         <Route path='/WeeklyReport' element={<WeeklyReport />} />
-        <Route path='/irrigation' element={<irrigation />} />
+        <Route path='/IrrigationForm' element={<IrrigationForm />} />
         <Route path='/Irrigation-form' element={<IrrigationPage />} />
         <Route path='/add-estimate' element={<AddEstimatePage />} />
         <Route path='/Customers' element={

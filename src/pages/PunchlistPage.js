@@ -136,9 +136,10 @@ const PunchlistPage = () => {
                                                     
                                                     <td>1/17/2014</td>
                                                     <td>Closed</td>
+                                                    <td>
                                                     <NavLink to='/PunchlistPreview'>
                         <span class="badge badge-primary light border-0 me-1">Open</span>
-                    </NavLink>
+                    </NavLink></td>
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -3,7 +3,8 @@ import React from 'react'
 const DashBoard = () => {
     return (
         <div className="content-body">
-            <div className="page-titles">
+            <div className="row page-titles">
+                <div class="col-md-6">
                 <ol className="breadcrumb">
                     <div className="menu-icon">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,35 +14,25 @@ const DashBoard = () => {
                     </div>
                     <li><h5 className="bc-title">Dashboard</h5></li>
                 </ol>
-                <a className="text-primary fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Task</a>
+                </div> 
+                <div class="col-md-6">
+                <a className="text-primary fs-13" style={{float:'right'}} data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Service Request</a>
+                <a className="text-primary fs-13 me-4" style={{float:'right'}} data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Estimate</a>
+           
+                </div>
+                
+                
             </div>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-xl-9 wid-100">
+                    <div className="col-xl-12 wid-100">
                         <div className="row">
-                            <div class="col-xl-3 col-sm-6">
-                                <div class="card chart-grd same-card">
-                                    <div class="card-body depostit-card p-0">
-                                        <div class="depostit-card-media d-flex justify-content-between pb-0">
-                                            <div>
-                                                <h6>Total Revenue</h6>
-                                                <h3>$1200.00</h3>
-                                            </div>
-                                            <div class="icon-box bg-primary-light">
-                                                <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.4642 13.7074C11.4759 12.1252 10.8504 10.8738 9.60279 9.99009C8.6392 9.30968 7.46984 8.95476 6.33882 8.6137C3.98274 7.89943 3.29927 7.52321 3.29927 6.3965C3.29927 5.14147 4.93028 4.69493 6.32655 4.69493C7.34341 4.69493 8.51331 5.01109 9.23985 5.47964L10.6802 3.24887C9.73069 2.6333 8.43112 2.21342 7.14783 2.0831V0H4.49076V2.22918C2.12884 2.74876 0.640949 4.29246 0.640949 6.3965C0.640949 7.87005 1.25327 9.03865 2.45745 9.86289C3.37331 10.4921 4.49028 10.83 5.56927 11.1572C7.88027 11.8557 8.81873 12.2813 8.80805 13.691L8.80799 13.7014C8.80799 14.8845 7.24005 15.3051 5.89676 15.3051C4.62786 15.3051 3.248 14.749 2.46582 13.9222L0.535522 15.7481C1.52607 16.7957 2.96523 17.5364 4.4907 17.8267V20.0001H7.14783V17.8735C9.7724 17.4978 11.4616 15.9177 11.4642 13.7074Z" fill="var(--primary)" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <div id="NewCustomers"></div>
-                                    </div>
-                                </div>
-                            </div>
+                     
                             <div class="col-xl-3  col-lg-6 col-sm-6">
                                 <div class="widget-stat card">
                                     <div class="card-body p-4">
                                         <h6>Open Service Requests</h6>
-                                        <h3 style={{ fontWeight: '600' }}>776534</h3>
+                                        <h3 style={{ fontWeight: '600' }}>776</h3>
                                         <div class="progress mb-2">
                                             <div class="progress-bar progress-animated bg-warning" style={{ width: '50%' }}></div>
                                         </div>
@@ -54,7 +45,7 @@ const DashBoard = () => {
                                     <div class="card-body depostit-card p-0">
                                         <div class="depostit-card-media d-flex justify-content-between pb-0">
                                             <div>
-                                                <h6>Total Expenses</h6>
+                                                <h6>Open Estimate</h6>
                                                 <h3>$1200.00</h3>
                                             </div>
                                             <div class="icon-box bg-danger-light">
@@ -64,6 +55,24 @@ const DashBoard = () => {
                                             </div>
                                         </div>
                                         <div id="NewExperience"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6">
+                                <div class="card chart-grd same-card">
+                                    <div class="card-body depostit-card p-0">
+                                        <div class="depostit-card-media d-flex justify-content-between pb-0">
+                                            <div>
+                                                <h6>Approved Estimate</h6>
+                                                <h3>$1200.00</h3>
+                                            </div>
+                                            <div class="icon-box bg-primary-light">
+                                                <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11.4642 13.7074C11.4759 12.1252 10.8504 10.8738 9.60279 9.99009C8.6392 9.30968 7.46984 8.95476 6.33882 8.6137C3.98274 7.89943 3.29927 7.52321 3.29927 6.3965C3.29927 5.14147 4.93028 4.69493 6.32655 4.69493C7.34341 4.69493 8.51331 5.01109 9.23985 5.47964L10.6802 3.24887C9.73069 2.6333 8.43112 2.21342 7.14783 2.0831V0H4.49076V2.22918C2.12884 2.74876 0.640949 4.29246 0.640949 6.3965C0.640949 7.87005 1.25327 9.03865 2.45745 9.86289C3.37331 10.4921 4.49028 10.83 5.56927 11.1572C7.88027 11.8557 8.81873 12.2813 8.80805 13.691L8.80799 13.7014C8.80799 14.8845 7.24005 15.3051 5.89676 15.3051C4.62786 15.3051 3.248 14.749 2.46582 13.9222L0.535522 15.7481C1.52607 16.7957 2.96523 17.5364 4.4907 17.8267V20.0001H7.14783V17.8735C9.7724 17.4978 11.4616 15.9177 11.4642 13.7074Z" fill="var(--primary)" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div id="NewCustomers"></div>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +107,43 @@ const DashBoard = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-xl-8">
+                            <div class="col-xl-3  col-lg-6 col-sm-6">
+                                <div class="widget-stat card">
+                                    <div class="card-body p-4">
+                                        <h6>Closed Bill</h6>
+                                        <h3 style={{ fontWeight: '600' }}>$ 7760</h3>
+                                        <div class="progress mb-2">
+                                            <div class="progress-bar progress-animated bg-success" style={{ width: '100%' }}></div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3  col-lg-6 col-sm-6">
+                                <div class="widget-stat card">
+                                    <div class="card-body p-4">
+                                        <h6>Open Punchlist</h6>
+                                        <h3 style={{ fontWeight: '600' }}>76</h3>
+                                        <div class="progress mb-2">
+                                            <div class="progress-bar progress-animated bg-danger" style={{ width: '30%' }}></div>
+                                        </div>
+                                        <small>30% Increase in 25 Days</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3  col-lg-6 col-sm-6">
+                                <div class="widget-stat card">
+                                    <div class="card-body p-4">
+                                        <h6>Open Landscape</h6>
+                                        <h3 style={{ fontWeight: '600' }}>15</h3>
+                                        <div class="progress mb-2">
+                                            <div class="progress-bar progress-animated bg-secondary" style={{ width: '20%' }}></div>
+                                        </div>
+                                        <small>20% Increase in 25 Days</small>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* <div className="col-xl-8">
                                 <div className="card overflow-hidden">
                                     <div className="card-header border-0 pb-0 flex-wrap">
                                         <h4 className="heading mb-0">Projects Overview</h4>
@@ -139,8 +184,8 @@ const DashBoard = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="col-xl-4">
+                            </div> */}
+                            {/* <div className="col-xl-4">
                                 <div className="card">
                                     <div className="card-header border-0">
                                         <h4 className="heading mb-0">My To Do Items</h4>
@@ -439,10 +484,10 @@ const DashBoard = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
-                    <div className="col-xl-3 t-earn">
+                    {/* <div className="col-xl-3 t-earn">
                         <div className="card">
                             <div className="card-header border-0 pb-0">
                                 <h4 className="heading mb-0">Total Earning</h4>
@@ -468,7 +513,7 @@ const DashBoard = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className="col-xl-6 active-p">
                         <div className="card">

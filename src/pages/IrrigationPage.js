@@ -1,5 +1,5 @@
 import React from 'react'
-import IrrigationForm from '../components/Irrigation/IrrigationForm'
+import IrrigationList from '../components/Irrigation/irrigationlist'
 import StaticComps from '../components/StaticComps'
 import Footer from '../components/Footer'
 
@@ -19,9 +19,8 @@ const IrrigationPage = () => {
                         </div>
                         <li><h5 className="bc-title">Irrigation - Audit Form</h5></li>
                     </ol>
-                    <a className="text-primary fs-13" data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Task</a>
-                </div>
-                <IrrigationForm />
+                        </div>
+              <IrrigationList/>
             </div>
             <Footer />
         </>
