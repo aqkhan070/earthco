@@ -1,33 +1,67 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import EstimateTR from './Estimates/EstimateTR';
+import { DataContext } from '../context/AppData';
+import { RoutingContext } from '../context/RoutesContext';
+import ServiceRequestTR from './ServiceRequest/ServiceRequestTR';
 
 const DashBoard = () => {
+
+    const { estimates, setSingleObj, serviceRequests, setSingleSR } = useContext(DataContext);
+    const { setEstimateRoute, setSRroute } = useContext(RoutingContext)
+
+    const handleCatClick = (type, id) => {
+        setEstimateRoute(type);
+        const updatedArr = estimates.filter((object) => {
+            if (id === object.estimateID) {
+                return object;
+            }
+        });
+        setSingleObj(updatedArr);
+    }
+    const handleCatClick2 = (type, id) => {
+        setSRroute(type);
+        const updatedArr = serviceRequests.filter((object) => {
+            if (id === object.ID) {
+                return object;
+            }
+        });
+        setSingleSR(updatedArr[0]);
+    }
+
+    const renderedRows = serviceRequests.map((item) => {
+        return <ServiceRequestTR record={item} onClick={() => handleCatClick2(`service-request${item.ID}`, item.ID)} />
+    })
+
+    const renderedEstimates = estimates.map((object) => {
+        return <EstimateTR key={object.estimateID} onClick={() => handleCatClick(`Estimate${object.estimateID}`, object.estimateID)} estimate={object} />
+    });
     return (
         <div className="content-body">
             <div className="row page-titles">
                 <div class="col-md-6">
-                <ol className="breadcrumb">
-                    <div className="menu-icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.5 7.49999L10 1.66666L17.5 7.49999V16.6667C17.5 17.1087 17.3244 17.5326 17.0118 17.8452C16.6993 18.1577 16.2754 18.3333 15.8333 18.3333H4.16667C3.72464 18.3333 3.30072 18.1577 2.98816 17.8452C2.67559 17.5326 2.5 17.1087 2.5 16.6667V7.49999Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M7.5 18.3333V10H12.5V18.3333" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </div>
-                    <li><h5 className="bc-title">Dashboard</h5></li>
-                </ol>
-                </div> 
-                <div class="col-md-6">
-                <a className="text-primary fs-13" style={{float:'right'}} data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Service Request</a>
-                <a className="text-primary fs-13 me-4" style={{float:'right'}} data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Estimate</a>
-           
+                    <ol className="breadcrumb">
+                        <div className="menu-icon">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.5 7.49999L10 1.66666L17.5 7.49999V16.6667C17.5 17.1087 17.3244 17.5326 17.0118 17.8452C16.6993 18.1577 16.2754 18.3333 15.8333 18.3333H4.16667C3.72464 18.3333 3.30072 18.1577 2.98816 17.8452C2.67559 17.5326 2.5 17.1087 2.5 16.6667V7.49999Z" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M7.5 18.3333V10H12.5V18.3333" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </div>
+                        <li><h5 className="bc-title">Dashboard</h5></li>
+                    </ol>
                 </div>
-                
-                
+                <div class="col-md-6">
+                    <a className="text-primary fs-13" style={{ float: 'right' }} data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Service Request</a>
+                    <a className="text-primary fs-13 me-4" style={{ float: 'right' }} data-bs-toggle="offcanvas" href="#offcanvasExample1" role="button" aria-controls="offcanvasExample1">+ Add Estimate</a>
+
+                </div>
+
+
             </div>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-xl-12 wid-100">
                         <div className="row">
-                     
+
                             <div class="col-xl-3  col-lg-6 col-sm-6">
                                 <div class="widget-stat card">
                                     <div class="card-body p-4">
@@ -115,7 +149,7 @@ const DashBoard = () => {
                                         <div class="progress mb-2">
                                             <div class="progress-bar progress-animated bg-success" style={{ width: '100%' }}></div>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -515,584 +549,44 @@ const DashBoard = () => {
                         </div>
                     </div> */}
 
-                    <div className="col-xl-6 active-p">
+                    <div className="col-xl-5 col-md-5 active-p">
                         <div className="card">
                             <div className="card-body p-0">
                                 <div className="table-responsive active-projects shorting">
 
                                     <div className="tbl-caption">
-                                        <h4 className="heading mb-0">Active Projects</h4>
+                                        <h4 className="heading mb-0">New Service Requests</h4>
                                     </div>
-                                    <table id="projects-tbl" className="table ItemsCheckboxSec">
+                                    <table id="example5" className="display table" style={{ minWidth: '845px' }}>
                                         <thead>
-                                            <tr>
+                                            <tr className='serviceRequestRecords'>
                                                 <th>
-                                                    <div className="form-check custom-checkbox ms-0">
-                                                        <input type="checkbox" className="form-check-input checkAllInput" required />
-                                                        <label className="form-check-label" htmlFor="checkAll"></label>
+                                                    <div className="form-check custom-checkbox ms-2">
+                                                        <input type="checkbox" className="form-check-input" id="customCheckBox2" required="" />
+                                                        <label className="form-check-label" htmlFor="customCheckBox2"></label>
                                                     </div>
                                                 </th>
-                                                <th>Project Name</th>
-                                                <th>Project Lead</th>
-                                                <th>Progress</th>
-                                                <th>Assignee</th>
+
+                                                <th>Customer Name </th>
+                                                <th>Assigned to</th>
+                                                <th>Service Request Number</th>
+
                                                 <th>Status</th>
-                                                <th>Due Date</th>
+                                                <th>Work Requested</th>
+                                                <th>Date Created</th>
+                                                <th>Type</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox2" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox2"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Batman</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Liam Risher</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-primary" style={{ width: '53%', height: '5px', borderRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-primary">53%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-primary light border-0">Inprogress</span>
-                                                </td>
-                                                <td>
-                                                    <span>08 Sep 2023</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox2" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox2"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Mivy App</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Honey Risher</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-primary" style={{ width: '53%', height: '5px', borderRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-primary">52%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-danger light border-0">Inprogress</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox2" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox2"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Crypto App</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Ankites Risher</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" style={{ width: '53%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-primary">58%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
-
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-danger light border-0">Pending</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox3" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox3"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Bender Project</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Oliver Noah</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" style={{ width: '30%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-danger">30%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-danger light border-0">Pending</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox4" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox4"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Canary</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic888.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Elijah James</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-success" style={{ width: '40%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-success">40%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-success light border-0">Completed</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox5" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox5"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Casanova</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">William Risher</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-primary" style={{ width: '53%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-primary">53%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-primary light border-0">Inprogress</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox3" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox3"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Bender Project</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Oliver Noah</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" style={{ width: '30%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-danger">30%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-danger light border-0">Pending</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox4" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox4"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Canary</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic888.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Elijah James</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-success" style={{ width: '40%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-success">40%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-success light border-0">Completed</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox5" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox5"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Casanova</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">William Risher</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-primary" style={{ width: '53%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-primary">53%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-primary light border-0">Inprogress</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox6" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox6"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Bigfish</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Donald Benjamin</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" style={{ width: '30%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-danger">30%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-danger light border-0">Inprogress</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox7" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox7"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Matadors</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic888.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Liam Risher</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-primary" style={{ width: '53%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-primary">53%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-primary light border-0">Inprogress</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox8" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox8"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Mercury</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Oliver Noah</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" style={{ width: '30%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-danger">30%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic777.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-danger light border-0">Pending</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox9" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox9"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Whistler</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic999.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Elijah James</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-success" style={{ width: '40%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-success">40%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic666.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-success light border-0">Completed</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox10" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox10"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Time Projects</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic2.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">Lucas</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-danger" style={{ width: '33%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-primary">33%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic999.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-primary light border-0">Inprogress</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div className="form-check custom-checkbox">
-                                                        <input type="checkbox" className="form-check-input" id="customCheckBox11" required />
-                                                        <label className="form-check-label" htmlFor="customCheckBox11"></label>
-                                                    </div>
-                                                </td>
-                                                <td>Fast Ball</td>
-                                                <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <p className="mb-0 ms-2">William Risher</p>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="tbl-progress-box">
-                                                        <div className="progress">
-                                                            <div className="progress-bar bg-primary" style={{ width: '53%', height: '5px', bordeRadius: '4px' }} role="progressbar"></div>
-                                                        </div>
-                                                        <span className="text-primary">53%</span>
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <div className="avatar-list avatar-list-stacked">
-                                                        <img src="./assets/images/contacts/pic1.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic555.jpg" className="avatar rounded-circle" alt="" />
-                                                        <img src="./assets/images/contacts/pic999.jpg" className="avatar rounded-circle" alt="" />
-                                                    </div>
-                                                </td>
-                                                <td className="pe-0">
-                                                    <span className="badge badge-primary light border-0">Inprogress</span>
-                                                </td>
-                                                <td>
-                                                    <span>06 Sep 2021</span>
-                                                </td>
-                                            </tr>
-
+                                            {renderedRows}
                                         </tbody>
-
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-xl-3 col-md-6 up-shd">
+                    <div className="col-xl-3 col-md-3 up-shd">
                         <div className="card">
                             <div className="card-header border-0 pb-1">
                                 <h4 className="heading mb-0">Upcoming Schedules</h4>
@@ -1147,56 +641,41 @@ const DashBoard = () => {
                         </div>
                     </div>
 
-                    <div className="col-xl-3 col-md-6 up-shd">
+                    <div className="col-xl-4 col-md-4 up-shd">
                         <div className="card">
                             <div className="card-header pb-0 border-0">
                                 <h4 className="heading mb-0">Projects Status</h4>
-                                <select className=" status-select normal-select">
-                                    <option value="Today">Today</option>
-                                    <option value="Week">Week</option>
-                                    <option value="Month">Month</option>
-                                </select>
                             </div>
-                            <div className="card-body">
-                                <div id="projectChart" className="project-chart"></div>
-                                <div className="project-date">
-                                    <div className="project-media">
-                                        <p className="mb-0">
-                                            <svg className="me-2" width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect y="0.5" width="12" height="12" rx="3" fill="var(--primary)" />
-                                            </svg>
-                                            Completed Projects
-                                        </p>
-                                        <span>125 Projects</span>
-                                    </div>
-                                    <div className="project-media">
-                                        <p className="mb-0">
-                                            <svg className="me-2" width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect y="0.5" width="12" height="12" rx="3" fill="#3AC977" />
-                                            </svg>
-                                            Progress Projects
-                                        </p>
-                                        <span>125 Projects</span>
-                                    </div>
-                                    <div className="project-media">
-                                        <p className="mb-0">
-                                            <svg className="me-2" width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect y="0.5" width="12" height="12" rx="3" fill="#FF5E5E" />
-                                            </svg>
-                                            Cancelled
-                                        </p>
-                                        <span>125 Projects</span>
-                                    </div>
-                                    <div className="project-media">
-                                        <p className="mb-0">
-                                            <svg className="me-2" width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect y="0.5" width="12" height="12" rx="3" fill="#FF9F00" />
-                                            </svg>
-                                            Yet to Start
-                                        </p>
-                                        <span>125 Projects</span>
-                                    </div>
+                            <div className="table-responsive active-projects shorting">
+
+                                <div className="tbl-caption">
+                                    <h4 className="heading mb-0">New Service Requests</h4>
                                 </div>
+                                <table id="empoloyees-tblwrapper" className="table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div className="form-check custom-checkbox ms-2">
+                                                    <input type="checkbox" className="form-check-input" id="customCheckBox2" required="" />
+                                                    <label className="form-check-label" htmlFor="customCheckBox2"></label>
+                                                </div>
+                                            </th>
+                                            <th>Customer Name</th>
+                                            <th>Assign to</th>
+                                            <th>Estimate Number</th>
+                                            <th>Estimate Amount</th>
+                                            <th>Description of Work </th>
+                                            <th>Date Created</th>
+                                            <th>Status</th>
+                                            <th>QB Status</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {renderedEstimates}
+                                    </tbody>
+
+                                </table>
                             </div>
                         </div>
                     </div>

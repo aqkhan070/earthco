@@ -40,11 +40,10 @@ function App() {
   const { estimateRoute, SRroute } = useContext(RoutingContext);
 
   return (
-     <BrowserRouter basename={process.env.PUBLIC_URL}>
-
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route exact path='/' element={<LoginPage />} />
-        <Route  path='/Dashboard' element={<DashboardPage />} />
+        <Route path='/Dashboard' element={<DashboardPage />} />
         <Route path='/Employees' element={<EmployeesPage />} />
         <Route path='/Estimates' element={
           <DataFun>
